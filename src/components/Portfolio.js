@@ -10,16 +10,16 @@ const Portfolio = () => {
       src: pill,
       demo: "https://example.com",
       code: "https://github.com",
-      title: "Pill Reminder App",
-      description: "Helps users manage their medication schedules effectively.",
+      title: "Pill-Planner",
+      description: "A web application that Streamlines and tracks the Medicine Dosage.Helps users manage their medication schedules effectively.",
     },
     {
       id: 2,
       src: edu,
       demo: "https://example.com",
       code: "https://github.com",
-      title: "Education System",
-      description: "Enhances the learning experience for students through innovative tools.",
+      title: "Envision",
+      description: "Competency Student profile Score calculator.Enhances the learning experience for students through innovative tools.",
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const Portfolio = () => {
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-            Portfolio
+            Projects
           </p>
           <p className="py-6">Check out some of my work right here</p>
         </div>

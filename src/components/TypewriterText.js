@@ -21,7 +21,13 @@ const TypewriterText = () => {
     return () => typed.destroy();
   }, []);
 
-  return <span ref={el} className="text-cyan-500"></span>;
+  return (
+    <span
+      ref={el}
+      className="text-cyan-500 text-lg sm:text-xl md:text-6xl font-semibold"
+      aria-live="polite"
+    ></span>
+  );
 };
 
 export default TypewriterText;
