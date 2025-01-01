@@ -17,7 +17,7 @@ const Certifications = () => {
       organization: "Oracle",
       date: "2024",
       badge: orcale,
-      certificateLink: dev,
+      certificateLink:"https://drive.google.com/file/d/1qe3zOSBLZX95v2KgviZ-G583pIMKX8cQ/view?usp=sharing",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Certifications = () => {
       organization: "Coursera",
       date: "2024",
       badge: stanford,
-      certificateLink: coursera,
+      certificateLink: "https://drive.google.com/file/d/18FVg1lL_boJ1i0v9F3wXjunKhe_WSW4R/view?usp=sharing",
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ const Certifications = () => {
       organization: "Amazon Web Services",
       date: "2025",
       badge: aws,
-      certificateLink: "https://aws.amazon.com/certificate-link3",
+      certificateLink: aws,
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ const Certifications = () => {
       organization: "Udemy",
       date: "2024",
       badge: udemyimg,
-      certificateLink: udemy,
+      certificateLink: "https://drive.google.com/file/d/1TJRWNc2aATrU8Xy-D5HvGgLRMebJGvns/view?usp=sharing",
     },
     {
       id: 5,
@@ -49,7 +49,7 @@ const Certifications = () => {
       organization: "HP",
       date: "2024",
       badge: hpimg,
-      certificateLink: hpcertify,
+      certificateLink:"https://drive.google.com/file/d/1OpGIp-NfcvVeTNhsfhmvBxpSuFiNXZYv/view?usp=sharing",
     },
     {
       id: 6,
@@ -57,7 +57,7 @@ const Certifications = () => {
       organization: "Amazon Web Services",
       date: "2025",
       badge: aws,
-      certificateLink: "https://aws.amazon.com/certificate-link3",
+      certificateLink: aws,
     },
   ];
 

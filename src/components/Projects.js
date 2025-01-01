@@ -3,7 +3,7 @@ import pill from "../assets/pillimg.jpg";
 import edu from "../assets/education-system-students.jpg";
 import driver from "../assets/drowsy.jpeg";
 
-const Portfolio = () => {
+const Projects = () => {
   const portfolios = [
     {
       id: 1,
@@ -90,4 +90,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Projects;
