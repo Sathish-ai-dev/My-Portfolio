@@ -4,7 +4,10 @@ import stanford from "../assets/stanford.jpg";
 import orcale from "../assets/oracle_dev.png";
 import dev from "../assets/dev_gym.jpg";
 import coursera from "../assets/coursera.jpg";
-
+import udemy from "../assets/udemy.jpg";
+import hpcertify from "../assets/hpcertfiy.jpg";
+import hpimg from "../assets/hpimg.png";
+import udemyimg from "../assets/udemyimg.png";
 
 const Certifications = () => {
   const certs = [
@@ -14,7 +17,7 @@ const Certifications = () => {
       organization: "Oracle",
       date: "2024",
       badge: orcale,
-      certificateLink:dev,
+      certificateLink: dev,
     },
     {
       id: 2,
@@ -34,19 +37,19 @@ const Certifications = () => {
     },
     {
       id: 4,
-      title: "Database for Developers",
-      organization: "Oracle",
+      title: "Master Data Analysis",
+      organization: "Udemy",
       date: "2024",
-      badge: orcale,
-      certificateLink: "https://www.oracle.com/certificate-link1",
+      badge: udemyimg,
+      certificateLink: udemy,
     },
     {
       id: 5,
-      title: "Machine Learning",
-      organization: "Coursera",
+      title: "Data Science & Analytics",
+      organization: "HP",
       date: "2024",
-      badge: stanford,
-      certificateLink: "https://www.coursera.org/certificate-link2",
+      badge: hpimg,
+      certificateLink: hpcertify,
     },
     {
       id: 6,
@@ -73,7 +76,7 @@ const Certifications = () => {
           {certs.map(({ id, title, organization, date, badge, certificateLink }) => (
             <div
               key={id}
-              className="group shadow-md shadow-gray-600 rounded-lg p-6 hover:scale-105 duration-500 relative"
+              className="group shadow-md shadow-gray-600 rounded-lg p-6 hover:scale-105 duration-500 relative overflow-hidden"
             >
               {/* Badge Image */}
               <img
@@ -89,19 +92,21 @@ const Certifications = () => {
                 className="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
               />
 
-              <h3 className="text-xl font-bold mb-2">{title}</h3>
-              <p className="text-gray-400">{organization}</p>
-              <p className="text-sm text-gray-500">{date}</p>
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold mb-2">{title}</h3>
+                <p className="text-gray-400">{organization}</p>
+                <p className="text-sm text-gray-500">{date}</p>
 
-              {/* Link to certificate */}
-              <a
-                href={certificateLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:underline mt-4 block text-center"
-              >
-                View Certificate
-              </a>
+                {/* Link to certificate */}
+                <a
+                  href={certificateLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                 className="mt-4 ml-16 inline-block text-center px-4 py-2 text-white bg-gradient-to-r from-white-500 to-gray-600 rounded-lg shadow-md hover:shadow-lg hover:from-white-600 hover:to-gray-500 transform hover:scale-105 transition-all duration-300 ease-in-out"
+                >
+                  View Certificate
+                </a>
+              </div>
             </div>
           ))}
         </div>
