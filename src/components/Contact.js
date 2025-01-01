@@ -1,79 +1,29 @@
-// const Contact = () => {
-//     return (
-//       <div name="contact" className="w-full h-screen bg-gradient-to-b from-gray-800 to-black p-4 text-white">
-//         <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
-//           <div className="pb-8">
-//             <p className="text-4xl font-bold inline border-b-4 border-gray-500">Contact</p>
-//             <p className="py-6">Submit the form below to get in touch with me</p>
-//           </div>
-  
-//           <div className="flex justify-center items-center">
-//             <form action="https://getform.io/f/YOUR_FORM_ID" method="POST" className="flex flex-col w-full md:w-1/2">
-//               <input
-//                 type="text"
-//                 name="name"
-//                 placeholder="Enter your name"
-//                 className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
-//               />
-//               <input
-//                 type="text"
-//                 name="email"
-//                 placeholder="Enter your email"
-//                 className="my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
-//               />
-//               <textarea
-//                 name="message"
-//                 rows="10"
-//                 placeholder="Enter your message"
-//                 className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
-//               ></textarea>
-  
-//               <button className="text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
-//                 Let's talk
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   };
-  
-//   export default Contact;
-
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { FaLinkedin, FaGithub } from 'react-icons/fa'; // Import LinkedIn and GitHub icons
 
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState(""); // For success/error messages
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-        e.target,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
-      )
+      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+        publicKey: 'YOUR_PUBLIC_KEY',
+      })
       .then(
-        (result) => {
-          console.log(result.text);
-          setFormStatus("success");
-          e.target.reset(); // Reset the form fields
+        () => {
+          console.log('SUCCESS!');
         },
         (error) => {
-          console.error(error.text);
-          setFormStatus("error");
-        }
+          console.log('FAILED...', error.text);
+        },
       );
   };
 
   return (
-    <div
-      name="contact"
-      className="w-full h-screen bg-gradient-to-b from-gray-800 to-black p-4 text-white"
-    >
+    <div className="w-full h-screen bg-gradient-to-b from-gray-800 to-black p-4 text-white">
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-gray-500">
@@ -84,19 +34,20 @@ const Contact = () => {
 
         <div className="flex justify-center items-center">
           <form
+            ref={form}
             onSubmit={sendEmail}
             className="flex flex-col w-full md:w-1/2"
           >
             <input
               type="text"
-              name="name"
+              name="user_name"
               placeholder="Enter your name"
               required
               className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
             />
             <input
               type="email"
-              name="email"
+              name="user_email"
               placeholder="Enter your email"
               required
               className="my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
@@ -118,16 +69,26 @@ const Contact = () => {
           </form>
         </div>
 
-        {formStatus === "success" && (
-          <p className="text-green-500 text-center mt-4">
-            Your message has been sent successfully!
-          </p>
-        )}
-        {formStatus === "error" && (
-          <p className="text-red-500 text-center mt-4">
-            Oops! Something went wrong. Please try again later.
-          </p>
-        )}
+        <div className="flex justify-center space-x-6 mt-8">
+          {/* LinkedIn Icon with link */}
+          <a
+            href="https://www.linkedin.com/in/saicharansuggala"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-cyan-500 transition duration-300"
+          >
+            <FaLinkedin size={30} />
+          </a>
+          {/* GitHub Icon with link */}
+          <a
+            href="https://github.com/CharanSuggala26"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-cyan-500 transition duration-300"
+          >
+            <FaGithub size={30} />
+          </a>
+        </div>
       </div>
     </div>
   );
