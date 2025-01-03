@@ -29,7 +29,7 @@ const Certifications = () => {
     },
     {
       id: 3,
-      title: "AWS Solutions Architect",
+      title: "AWS Cloud Practitioner",
       organization: "Amazon Web Services",
       date: "2025",
       badge: aws,
