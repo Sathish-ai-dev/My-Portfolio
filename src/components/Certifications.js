@@ -2,12 +2,8 @@ import React from "react";
 import aws from "../assets/aws-2.jpeg";
 import stanford from "../assets/stanford.jpg";
 import orcale from "../assets/oracle_dev.png";
-import dev from "../assets/dev_gym.jpg";
-import coursera from "../assets/coursera.jpg";
-import udemy from "../assets/udemy.jpg";
-import hpcertify from "../assets/hpcertfiy.jpg";
-import hpimg from "../assets/hpimg.png";
 import udemyimg from "../assets/udemyimg.png";
+import hpimg from "../assets/hpimg.png";
 
 const Certifications = () => {
   const certs = [
@@ -17,7 +13,7 @@ const Certifications = () => {
       organization: "Oracle",
       date: "2024",
       badge: orcale,
-      certificateLink:"https://drive.google.com/file/d/1qe3zOSBLZX95v2KgviZ-G583pIMKX8cQ/view?usp=sharing",
+      certificateLink: "https://drive.google.com/file/d/1qe3zOSBLZX95v2KgviZ-G583pIMKX8cQ/view?usp=sharing",
     },
     {
       id: 2,
@@ -49,7 +45,7 @@ const Certifications = () => {
       organization: "HP",
       date: "2024",
       badge: hpimg,
-      certificateLink:"https://drive.google.com/file/d/1OpGIp-NfcvVeTNhsfhmvBxpSuFiNXZYv/view?usp=sharing",
+      certificateLink: "https://drive.google.com/file/d/1OpGIp-NfcvVeTNhsfhmvBxpSuFiNXZYv/view?usp=sharing",
     },
     {
       id: 6,
@@ -62,50 +58,29 @@ const Certifications = () => {
   ];
 
   return (
-    <div
-      name="certifications"
-      className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-auto pb-12"
-    >
+    <div name="certifications" className="bg-gradient-to-b from-black to-gray-800 w-full text-white pb-12">
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full">
         <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-            Certifications
-          </p>
+          <p className="text-4xl font-bold inline border-b-4 border-gray-500">Certifications</p>
           <p className="py-6">My Professional Certifications</p>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 px-4 sm:px-0">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-0">
           {certs.map(({ id, title, organization, date, badge, certificateLink }) => (
             <div
               key={id}
-              className="shadow-md shadow-gray-600 rounded-lg p-6 relative overflow-hidden bg-gradient-to-b from-gray-700 to-gray-900"
+              className="shadow-md shadow-gray-600 rounded-lg p-6 relative overflow-hidden bg-gradient-to-b from-gray-700 to-gray-900 transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-lg hover:shadow-gray-400 hover:border hover:border-gray-500"
             >
-              {/* Badge Image */}
-              <img
-                src={badge}
-                alt={`${title} badge`}
-                className="rounded-full w-32 h-32 mx-auto mb-4"
-              />
-
-              {/* Certificate Image, hidden by default */}
-              <img
-                src={certificateLink}
-                alt={`${title} certificate`}
-                className="absolute top-0 left-0 w-full h-full object-cover opacity-0 rounded-lg"
-              />
-
-              <div className="relative z-10">
+              <img src={badge} alt={`${title} badge`} className="rounded-full w-32 h-32 mx-auto mb-4 transition-transform duration-300 hover:scale-110" />
+              <div className="text-center">
                 <h3 className="text-xl font-bold mb-2">{title}</h3>
                 <p className="text-gray-400">{organization}</p>
                 <p className="text-sm text-gray-500">{date}</p>
-
-                {/* Link to certificate */}
                 <a
                   href={certificateLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-block text-center px-4 py-2 text-white bg-gradient-to-r from-white-500 to-gray-600 rounded-lg shadow-md"
+                  className="mt-4 inline-block text-center px-4 py-2 text-white bg-gray-700 hover:bg-gray-600 transition-all duration-300 rounded-lg shadow-md border border-gray-500"
                 >
                   View Certificate
                 </a>
@@ -119,3 +94,4 @@ const Certifications = () => {
 };
 
 export default Certifications;
+

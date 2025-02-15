@@ -2,6 +2,10 @@ import React from "react";
 import pill from "../assets/pillimg.jpg";
 import edu from "../assets/education-system-students.jpg";
 import driver from "../assets/drowsy.jpeg";
+import tryon from "../assets/tryon.png";
+import atliq from "../assets/atliq.jpg";
+import lib from "../assets/lib.jpeg";
+
 
 const Projects = () => {
   const portfolios = [
@@ -17,7 +21,7 @@ const Projects = () => {
       id: 2,
       src: edu,
       demo: "https://example.com",
-      code: "https://github.com/Sanjana-1906/SIH",
+      code: "https://github.com/AKSHAY-CHOWDARY/Envision",
       title: "Envision",
       description: "Competency Student profile Score calculator.Enhances the learning experience for students through innovative tools.",
     },
@@ -29,6 +33,30 @@ const Projects = () => {
       title: "Drowsy Driving Detection",
       description: "Improves road safety by alerting drivers showing signs of fatigue.",
     },
+    {
+    id: 4,
+    src: tryon,
+    demo: "https://example.com",
+    code: "https://github.com/CharanSuggala26/Outfit-Assistant",
+    title: "AI Virtual Outfit Assistant",
+    description: "AI Virtual Outfit Assistant is an innovative tool that offers a virtual try-on experience, allowing users to see how different outfits look on them before making a purchase..",
+  },
+  {
+    id: 5,
+    src: atliq,
+    demo: "https://example.com",
+    code: "https://github.com/CharanSuggala26/AtliqueGrands-Data-Analysis",
+    title: "Atliq Grands Daata Analysis",
+    description: "The AtliQ Grands Data Analysis project provides data-driven insights for the hospitality industry using Power BI and the STAR methodology.",
+  },
+  {
+    id: 6,
+    src: lib,
+    demo: "https://example.com",
+    code: "https://github.com/CharanSuggala26/library-management",
+    title: "Library Management System",
+    description: "A Library Management System is a digital solution that streamlines book tracking, borrowing, returns, and inventory management for efficient library operations.",
+  },
   ];
 
   return (
@@ -36,7 +64,7 @@ const Projects = () => {
       name="portfolio"
       className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen"
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
+      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full mb-2">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-gray-500">
             Projects
