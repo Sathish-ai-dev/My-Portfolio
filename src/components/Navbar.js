@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed top-0 left-0 z-[100]">
       {/* Logo */}
       <div className="z-[100]">
-        <h1 className="text-3xl font-signature ml-2 sm:text-4xl md:text-5xl">Portfolio</h1>
+        <h1 className="text-3xl font-signature ml-2 sm:text-4xl md:text-4xl">𝒮𝒶𝒾 𝒞𝒽𝒶𝓇𝒶𝓃</h1>
       </div>
 
       {/* Desktop Menu */}
