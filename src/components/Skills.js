@@ -66,6 +66,7 @@ const Skills = () => {
     { id: 13, title: "Generative AI", style: "shadow-green-400" },
     { id: 14, title: "Tableau", style: "shadow-indigo-600" },
     { id: 15, title: "Firebase", style: "shadow-amber-400" },
+    { id: 16, title: "Streamlit", style: "shadow-blue-700" },
   ];
 
   return (
