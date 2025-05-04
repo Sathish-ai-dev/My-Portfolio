@@ -128,6 +128,10 @@ import driver from "../assets/drowsy.jpeg";
 import tryon from "../assets/tryon.png";
 import atliq from "../assets/atliq.jpg";
 import lib from "../assets/lib.jpeg";
+import ats from "../assets/ats.webp";
+import free from "../assets/free.jpg";
+import link from "../assets/link.jpg";
+
 
 function Projects() {
 
@@ -158,14 +162,30 @@ function Projects() {
     },
     {
       id: 4,
-      src: lib,
+      src: free,
       demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/library-management",
-      title: "Library Management System",
-      description: "A Library Management System is a digital solution that streamlines book tracking, borrowing, returns, and inventory management for efficient library operations.",
+      code: "https://github.com/pranay65/Webathon3.0",
+      title: "AI Freelance Job Marketplace",
+      description: "A modern, AI-powered freelance job platform designed to bridge the gap between skilled professionals and clients looking for top-tier talent. This platform streamlines the process of connecting, collaborating, and contracting, empowering freelancers.",
     },
     {
       id: 5,
+      src: ats,
+      demo: "https://example.com",
+      code: "https://github.com/CharanSuggala26/Application-Tracking-System",
+      title: "AI Resume Scanner",
+      description: " a complete end-to-end Applicant Tracking System (ATS) powered by the Google Gemini Pro Vision API. The system intelligently analyzes your resume, compares it with a given job description, and provides personalized improvement suggestions to help align your profile with the job requirements.",
+    },
+    {
+      id: 6,
+      src: link,
+      demo: "https://example.com",
+      code: "https://github.com/CharanSuggala26/LinkShield",
+      title: "AI E-mail Phishing",
+      description: "The AI E-mail Phishing Detection project uses machine learning algorithms to detect and prevent email phishing attacks. It uses natural language processing to analyze the email content and identify potential phishing indicators in real time. It alerts the user if the email is potentially phishing.",
+    },
+    {
+      id: 7,
       src: driver,
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/DrowsyDriverDetection",
@@ -173,13 +193,21 @@ function Projects() {
       description: "Improves road safety by alerting drivers showing signs of fatigue. It uses computer vision and machine learning to detect drowsiness in drivers. It also alerts the driver if they are drowsy. It alerts the driver if they are drowsy.",
     },
     {
-      id: 6,
+      id: 8,
+      src: lib,
+      demo: "https://example.com",
+      code: "https://github.com/CharanSuggala26/library-management",
+      title: "Library Management System",
+      description: "A Library Management System is a digital solution that streamlines book tracking, borrowing, returns, and inventory management for efficient library operations.",
+    },
+    {
+      id: 9,
       src: atliq,
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/AtliqueGrands-Data-Analysis",
       title: "Atliq Grands Data Analysis",
       description: "The AtliQ Grands Data Analysis project provides data-driven insights for the hospitality industry using Power BI and the STAR methodology. It helps businesses make informed decisions about their revenue growth.",
-    },
+    }
   ];
 
   return (
@@ -195,7 +223,7 @@ function Projects() {
           <p className="py-6">Check out some of my work right here</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 sm:px-0">
+        <div className="grid sm:grid-cols-3 md:grid-cols-3 gap-8 px-4 sm:px-0">
           {portfolios.map(({ id, src, demo, code, title, description }) => (
             <ProjectCard 
               key={id}
