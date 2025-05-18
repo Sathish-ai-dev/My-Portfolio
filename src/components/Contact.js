@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaLinkedin, FaGithub } from 'react-icons/fa'; // Import LinkedIn and GitHub icons
+import { FaLinkedin, FaGithub, FaYoutube } from 'react-icons/fa'; // Import LinkedIn and GitHub icons
 
 const Contact = () => {
   const form = useRef();
@@ -70,7 +70,7 @@ const Contact = () => {
         </div>
 
         <div className="flex justify-center space-x-6 mt-8">
-          {/* LinkedIn Icon with link */}
+          
           <a
             href="https://www.linkedin.com/in/saicharansuggala"
             target="_blank"
@@ -79,7 +79,7 @@ const Contact = () => {
           >
             <FaLinkedin size={30} />
           </a>
-          {/* GitHub Icon with link */}
+      
           <a
             href="https://github.com/CharanSuggala26"
             target="_blank"
@@ -87,6 +87,14 @@ const Contact = () => {
             className="text-white hover:text-cyan-500 transition duration-300"
           >
             <FaGithub size={30} />
+          </a>
+                    <a
+            href="https://www.youtube.com/channel/UCWVxAShujCEJmhSDo4A7CjA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-cyan-500 transition duration-300"
+          >
+            <FaYoutube size={30} />
           </a>
         </div>
       </div>
