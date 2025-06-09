@@ -104,7 +104,7 @@ const Home = () => {
             ></span>
           </h5>
           <p className="text-gray-500 py-4 max-w-md mx-auto md:mx-0">
-            I have experience building and designing software. Currently, I
+            I have experience building and designing software Applications. Currently, I
             love to work on web applications using technologies like React,
             Tailwind, Next.js, and GraphQL.
           </p>
