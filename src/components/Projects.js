@@ -10,7 +10,7 @@ import free from "../assets/free.jpg";
 import link from "../assets/link.jpg";
 import smart from "../assets/smart.jpg";
 import mock from "../assets/mock.png";
-
+import insurance from "../assets/insurance.png";
 
 function Projects() {
 
@@ -61,7 +61,7 @@ function Projects() {
       demo: "https://mockinterviews-4hntumcrurj43vz2fymxgi.streamlit.app/",
       code: "https://github.com/CharanSuggala26/MockInterviews",
       title: "AI-Powered Mock Interview",
-      description: "FastTrackHire is an AI-powered mock interview web application built with Python, Streamlit, and LLMs (LLaMA3-8B-8192) . It helps users simulate company-specific interview experiences by analyzing their resume and tailoring questions accordingly.",
+      description: "FastTrackHire is an AI-powered mock interview web application built with Python, Streamlit, and LLMs (LLaMA3-8B-8192) . It helps users simulate company-specific interview experiences by analyzing their resume and tailoring questions accordingly. FastTrackHire-makes you hire like a pro!",
     },
         {
       id: 7,
@@ -69,7 +69,7 @@ function Projects() {
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/Smart_Attendance_System",
       title: "Smart Attendance System",
-      description: "Smart Attendance System using OpenCV is a facial recognition-based solution that automates attendance by detecting and verifying student faces in real-time. It enhances accuracy, reduces proxy attendance, and eliminates manual entry errors.",
+      description: "Smart Attendance System using OpenCV is a facial recognition-based solution that automates attendance by detecting and verifying student faces in real-time. It enhances accuracy, reduces proxy attendance, and eliminates manual entry errors for efficient and accurate attendance tracking and management.",
     },
         {
       id: 8,
@@ -85,7 +85,7 @@ function Projects() {
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/DrowsyDriverDetection",
       title: "Drowsy Driving Detection",
-      description: "Improves road safety by alerting drivers showing signs of fatigue. It uses computer vision and machine learning to detect drowsiness in drivers. It also alerts the driver if they are drowsy. It alerts the driver if they are drowsy.",
+      description: "Improves road safety by alerting drivers showing signs of fatigue. It uses computer vision and machine learning to detect drowsiness in drivers. It alerts the driver if they are drowsy and helps them stay alert and safe on the road. Alarm is generated using pygame and CNN trained on 4000 images.",
     },
     {
       id: 10,
@@ -105,11 +105,11 @@ function Projects() {
     },
         {
       id: 12,
-      src: link,
+      src: insurance,
       demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/LinkShield",
-      title: "AI E-mail Phishing",
-      description: "The AI E-mail Phishing Detection project uses machine learning algorithms to detect and prevent email phishing attacks. It uses natural language processing to analyze the email content and identify potential phishing indicators in real time. It alerts the user if the email is potentially phishing.",
+      code: "https://github.com/CharanSuggala26/Insurance-Data-Analysis",
+      title: "Insurance Data Analysis",
+      description: " A comprehensive data analysis project focusing on insurance data to drive operational efficiency and informed decision-making. Key Highlights: Developed interactive dashboards in Power BI.",
     }
   ];
 

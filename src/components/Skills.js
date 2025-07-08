@@ -1,4 +1,4 @@
-import { SiReact, SiJavascript, SiNodedotjs, SiTailwindcss, SiMongodb, SiExpress, SiPython, SiCplusplus, SiAmazon, SiMysql, SiTableau, SiFirebase, SiStreamlit } from "react-icons/si";
+import { SiReact, SiJavascript, SiNodedotjs, SiTailwindcss, SiMongodb, SiExpress, SiPython, SiCplusplus, SiAmazon, SiMysql, SiTableau, SiFirebase, SiStreamlit, SiOpencv, SiTensorflow, SiDeepnote, SiHtml5 } from "react-icons/si";
 import { TbBrain } from "react-icons/tb"; // For Machine Learning
 import { GiArtificialIntelligence } from "react-icons/gi"; // For Generative AI
 
@@ -12,15 +12,19 @@ const techs = [
   { id: 5, title: "MongoDB", style: "shadow-green-600", icon: <SiMongodb /> },
   { id: 6, title: "Express.js", style: "shadow-pink-400", icon: <SiExpress /> },
   { id: 7, title: "Python", style: "shadow-yellow-400", icon: <SiPython /> },
-  { id: 8, title: "C++", style: "shadow-gray-500", icon: <SiCplusplus /> },
+  { id: 8, title: "C++", style: "shadow-gray-300", icon: <SiCplusplus /> },
   { id: 9, title: "AWS CP", style: "shadow-orange-500", icon: <SiAmazon /> },
   { id: 10, title: "Power BI", style: "shadow-blue-700", icon: <SiTableau /> },
   { id: 11, title: "Microsoft SQL Server", style: "shadow-red-500", icon: <SiMysql /> },
   { id: 12, title: "Machine Learning", style: "shadow-blue-400", icon: <TbBrain /> },
   { id: 13, title: "Generative AI", style: "shadow-green-400", icon: <GiArtificialIntelligence /> },
-  { id: 14, title: "Tableau", style: "shadow-indigo-600", icon: <SiTableau /> },
+  { id: 14, title: "Tableau", style: "shadow-gray-400", icon: <SiTableau /> },
   { id: 15, title: "Firebase", style: "shadow-amber-400", icon: <SiFirebase /> },
-  { id: 16, title: "Streamlit", style: "shadow-blue-700", icon: <SiStreamlit /> },
+  { id: 16, title: "Streamlit", style: "shadow-pink-400", icon: <SiStreamlit /> },
+  { id: 17, title: "OpenCv", style: "shadow-blue-500", icon: <SiOpencv /> },
+  {id:18, title:"Tensorflow", style:"shadow-pink-400", icon:<SiTensorflow />},
+  {id : 19,title:"Deeplearning", style:"shadow-red-500", icon:<SiDeepnote />},
+  {id : 20,title:"HTML/CSS", style:"shadow-green-500", icon:<SiHtml5 />},
 ];
 
 
