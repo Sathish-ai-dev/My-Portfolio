@@ -5,6 +5,8 @@ import stanford from "../assets/stanford.jpg";
 import orcale from "../assets/oracle_dev.png";
 import udemyimg from "../assets/udemy2.jpg";
 import hpimg from "../assets/hpimg.png";
+import ibm from "../assets/ibm.png";
+
 
 const Certifications = () => {
   const certs = [
@@ -30,7 +32,7 @@ const Certifications = () => {
       organization: "Amazon Web Services",
       date: "2025",
       badge: aws,
-      certificateLink: aws,
+      certificateLink: "https://drive.google.com/file/d/1k8w_ufmh_tSAGJ5sgHX-lgsHIXkrZDXc/view",
     },
     {
       id: 4,
@@ -50,11 +52,11 @@ const Certifications = () => {
     },
     {
       id: 6,
-      title: "AWS Solutions Architect",
-      organization: "Amazon Web Services",
+      title: "IBM Winter Intership",
+      organization: "IBM",
       date: "2025",
-      badge: aws,
-      certificateLink: aws,
+      badge: ibm,
+      certificateLink: "https://drive.google.com/file/d/1XNYyM53q5NNU707eAC2y-GmHrrJXqsEB/view?usp=sharing",
     },
   ];
 
@@ -91,7 +93,6 @@ const CertificationCard = ({ title, organization, date, badge, certificateLink }
     hover: { 
       scale: 1.1, 
       y: -10,
-      rotateY: 360,
       transition: { 
         rotateY: { duration: 1.5, ease: "easeInOut" },
         scale: { duration: 0.4 },
