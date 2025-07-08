@@ -8,6 +8,8 @@ import lib from "../assets/lib.jpeg";
 import ats from "../assets/ats.webp";
 import free from "../assets/free.jpg";
 import link from "../assets/link.jpg";
+import smart from "../assets/smart.jpg";
+import mock from "../assets/mock.png";
 
 
 function Projects() {
@@ -53,8 +55,24 @@ function Projects() {
       title: "AI Resume Scanner",
       description: "A complete end-to-end Applicant Tracking System (ATS) powered by the Google Gemini Pro Vision API. The system intelligently analyzes your resume, compares it with a given job description, and provides personalized improvement suggestions to help align your profile with the job requirements.",
     },
-    {
+        {
       id: 6,
+      src: mock,
+      demo: "https://mockinterviews-4hntumcrurj43vz2fymxgi.streamlit.app/",
+      code: "https://github.com/CharanSuggala26/MockInterviews",
+      title: "AI-Powered Mock Interview",
+      description: "FastTrackHire is an AI-powered mock interview web application built with Python, Streamlit, and LLMs (LLaMA3-8B-8192) . It helps users simulate company-specific interview experiences by analyzing their resume and tailoring questions accordingly.",
+    },
+        {
+      id: 7,
+      src: smart,
+      demo: "https://example.com",
+      code: "https://github.com/CharanSuggala26/Smart_Attendance_System",
+      title: "Smart Attendance System",
+      description: "Smart Attendance System using OpenCV is a facial recognition-based solution that automates attendance by detecting and verifying student faces in real-time. It enhances accuracy, reduces proxy attendance, and eliminates manual entry errors.",
+    },
+        {
+      id: 8,
       src: link,
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/LinkShield",
@@ -62,7 +80,7 @@ function Projects() {
       description: "The AI E-mail Phishing Detection project uses machine learning algorithms to detect and prevent email phishing attacks. It uses natural language processing to analyze the email content and identify potential phishing indicators in real time. It alerts the user if the email is potentially phishing.",
     },
     {
-      id: 7,
+      id: 9,
       src: driver,
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/DrowsyDriverDetection",
@@ -70,7 +88,7 @@ function Projects() {
       description: "Improves road safety by alerting drivers showing signs of fatigue. It uses computer vision and machine learning to detect drowsiness in drivers. It also alerts the driver if they are drowsy. It alerts the driver if they are drowsy.",
     },
     {
-      id: 8,
+      id: 10,
       src: lib,
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/library-management",
@@ -78,12 +96,20 @@ function Projects() {
       description: "A Library Management System is a digital solution that streamlines book tracking, borrowing, returns, and inventory management for efficient library operations.",
     },
     {
-      id: 9,
+      id: 11,
       src: atliq,
       demo: "https://example.com",
       code: "https://github.com/CharanSuggala26/AtliqueGrands-Data-Analysis",
       title: "Atliq Grands Data Analysis",
       description: "The AtliQ Grands Data Analysis project provides data-driven insights for the hospitality industry using Power BI and the STAR methodology. It helps businesses make informed decisions about their revenue growth.",
+    },
+        {
+      id: 12,
+      src: link,
+      demo: "https://example.com",
+      code: "https://github.com/CharanSuggala26/LinkShield",
+      title: "AI E-mail Phishing",
+      description: "The AI E-mail Phishing Detection project uses machine learning algorithms to detect and prevent email phishing attacks. It uses natural language processing to analyze the email content and identify potential phishing indicators in real time. It alerts the user if the email is potentially phishing.",
     }
   ];
 
