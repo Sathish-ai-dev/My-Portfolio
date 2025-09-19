@@ -1,63 +1,18 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import aws from "../assets/aws-2.jpeg";
-import stanford from "../assets/stanford.jpg";
-import orcale from "../assets/oracle_dev.png";
-import udemyimg from "../assets/udemy2.jpg";
-import hpimg from "../assets/hpimg.png";
-import ibm from "../assets/ibm.png";
+import AutomationAnywhere from "../assets/automation_anywhere.jpg";
 
 
 const Certifications = () => {
   const certs = [
     {
       id: 1,
-      title: "Database for Developers",
-      organization: "Oracle",
-      date: "2024",
-      badge: orcale,
-      certificateLink: "https://drive.google.com/file/d/1qe3zOSBLZX95v2KgviZ-G583pIMKX8cQ/view?usp=sharing",
-    },
-    {
-      id: 2,
-      title: "Machine Learning",
-      organization: "Coursera",
-      date: "2024",
-      badge: stanford,
-      certificateLink: "https://drive.google.com/file/d/18FVg1lL_boJ1i0v9F3wXjunKhe_WSW4R/view?usp=sharing",
-    },
-    {
-      id: 3,
-      title: "AWS Cloud Practitioner",
-      organization: "Amazon Web Services",
+      title: "Essential Automation Professional",
+      organization: "Automation Anywhere",
       date: "2025",
-      badge: aws,
-      certificateLink: "https://drive.google.com/file/d/1k8w_ufmh_tSAGJ5sgHX-lgsHIXkrZDXc/view",
-    },
-    {
-      id: 4,
-      title: "Master Data Analysis",
-      organization: "Udemy",
-      date: "2024",
-      badge: udemyimg,
-      certificateLink: "https://drive.google.com/file/d/1TJRWNc2aATrU8Xy-D5HvGgLRMebJGvns/view?usp=sharing",
-    },
-    {
-      id: 5,
-      title: "Data Science & Analytics",
-      organization: "HP",
-      date: "2024",
-      badge: hpimg,
-      certificateLink: "https://drive.google.com/file/d/1OpGIp-NfcvVeTNhsfhmvBxpSuFiNXZYv/view?usp=sharing",
-    },
-    {
-      id: 6,
-      title: "IBM Winter Intership",
-      organization: "IBM",
-      date: "2025",
-      badge: ibm,
-      certificateLink: "https://drive.google.com/file/d/1XNYyM53q5NNU707eAC2y-GmHrrJXqsEB/view?usp=sharing",
-    },
+      badge: AutomationAnywhere,
+      certificateLink: "https://drive.google.com/file/d/1tebEvYVQxEp-Q_nekHfHd6SEaI5a4URy/view?usp=sharing",
+    }
   ];
 
   return (

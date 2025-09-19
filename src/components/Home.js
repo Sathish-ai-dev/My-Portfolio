@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-scroll";
-import pic from "../assets/portpic.jpg";
+import pic from "../assets/portpic.png";
 import Typed from "typed.js";
 import { motion, useAnimationFrame, useMotionTemplate, useMotionValue } from "framer-motion";
+import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 const Home = () => {
   const typedRef = useRef(null);
@@ -11,10 +12,9 @@ const Home = () => {
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
       strings: [
-        "Full Stack Developer",
-        "Data Analyst",
-        "Machine Learning Engineer",
-        "Cloud Engineer",
+        "ML Engineer",
+        "AI Enthusiast",
+        "Agentic Automation Dev",
       ],
       typeSpeed: 50,
       backSpeed: 50,
@@ -68,7 +68,7 @@ const Home = () => {
             fill="none"
             width="100%"
             height="100%"
-            rx="9999" 
+            rx="9999"
             ry="9999"
             ref={pathRef}
           />
@@ -95,6 +95,7 @@ const Home = () => {
       className="h-screen w-full bg-gradient-to-b from-black via-black to-gray-800 flex items-center justify-center"
     >
       <div className="max-w-screen-lg mx-auto flex flex-col md:flex-row items-center justify-center h-full px-4">
+        {/* Text Section */}
         <div className="flex flex-col justify-center h-full text-center md:text-left">
           <h5 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-4">
             I'm a{" "}
@@ -104,13 +105,15 @@ const Home = () => {
             ></span>
           </h5>
           <p className="text-gray-500 py-4 max-w-md mx-auto md:mx-0">
-            I have experience building and designing software Applications. Currently, I
-            love to work on web applications using technologies like React,
-            Tailwind, Next.js, and GraphQL.
+            I have experience working on AI and Machine Learning projects. Currently, I love 
+            building intelligent applications using technologies like Python, Flask, 
+            TensorFlow, and NLP frameworks.
           </p>
+
+          {/* Portfolio Button */}
           <div>
             <Link
-              to="/projects"
+              to="projects"
               smooth
               duration={500}
               className="group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer hover:scale-105 transition-transform duration-300"
@@ -121,8 +124,43 @@ const Home = () => {
               </span>
             </Link>
           </div>
+
+          {/* Social Icons */}
+          <div className="flex justify-center md:justify-start space-x-6 mt-6">
+            <a
+              href="https://www.linkedin.com/in/sathish-ai-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-cyan-500 transition duration-300"
+            >
+              <FaLinkedin size={30} />
+            </a>
+            <a
+              href="https://github.com/Sathish-ai-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-cyan-500 transition duration-300"
+            >
+              <FaGithub size={30} />
+            </a>
+            <a
+    href="mailto:sathishsubramani9043@gmail.com"
+    className="text-white hover:text-cyan-500 transition duration-300"
+  >
+    <FaEnvelope size={30} />
+  </a>
+
+  {/* Phone */}
+  <a
+    href="tel:+919043736745"
+    className="text-white hover:text-cyan-500 transition duration-300"
+  >
+    <FaPhone size={30} />
+  </a>
+          </div>
         </div>
 
+        {/* Profile Picture */}
         <div className="mt-8 md:mt-0 md:ml-10">
           <div className="relative w-64 h-64 md:w-80 md:h-80 p-1 overflow-hidden">
             <MovingBorder duration={3000}>

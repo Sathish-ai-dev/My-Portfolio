@@ -1,116 +1,50 @@
 import React, { useState, useRef } from "react";
-import pill from "../assets/pillimg.jpg";
-import edu from "../assets/education-system-students.jpg";
-import driver from "../assets/drowsy.jpeg";
-import tryon from "../assets/tryon.png";
-import atliq from "../assets/atliq.jpg";
-import lib from "../assets/lib.jpeg";
-import ats from "../assets/ats.webp";
-import free from "../assets/free.jpg";
-import link from "../assets/link.jpg";
-import smart from "../assets/smart.jpg";
-import mock from "../assets/mock.png";
-import insurance from "../assets/insurance.png";
+import Fake from "../assets/Fake.jpg";
+import Loan from "../assets/Loan.webp";
+import Email from "../assets/Email.jpg";
+import Movie from "../assets/Movie.jpg";
+import Forest from "../assets/Forest.webp";
+
 
 function Projects() {
 
   const portfolios = [
     {
       id: 1,
-      src: pill,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/Medicine-Dosage-Tracker",
-      title: "Pill-Planner",
-      description: "A web application that Streamlines and tracks the Medicine Dosage. Helps users manage their medication schedules effectively.",
+      src: Fake,
+      code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/fake-news-detection",
+      title: "Fake News Detection",
+      description: "Developed a machine learning-based system to classify news articles as real or fake. Implemented NLP techniques for text preprocessing (tokenization, stopword removal, TF-IDF vectorization) and trained models like Logistic Regression, Naive Bayes, and Random Forest for classification. Achieved high accuracy in detecting misinformation. The system was deployed using Flask."
     },
     {
       id: 2,
-      src: edu,
-      demo: "https://example.com",
-      code: "https://github.com/AKSHAY-CHOWDARY/Envision",
-      title: "Envision",
-      description: "Competency Student profile Score calculator. Enhances the learning experience for students through innovative tools.",
+      src: Loan,
+      code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/Loan-eligibility-predictor",
+      title: "Loan Eligibility Predictor",
+      description: "Loan Eligibility Predictor using Machine Learning – Built a predictive model to assess loan eligibility based on applicant financial and demographic data. Applied Logistic Regression and Random Forest algorithms with feature engineering and data preprocessing, achieving high accuracy in classification. Deployed the model using Flask with an interactive web interface for real-time eligibility checks."
     },
     {
       id: 3,
-      src: tryon,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/Outfit-Assistant",
-      title: "AI Virtual Outfit Assistant",
-      description: "AI Virtual Outfit Assistant is an innovative tool that offers outfit suggestions based on vocation and style preferences. It provides a virtual try-on experience.",
+      src: Email,
+      code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/Email-spam-detector",
+      title: "Email Spam Classifier",
+      description: "Spam Email Classifier using Machine Learning _ Developed and deployed a lightweight email classification model capable of detecting spam with 90%+ accuracy. Implemented algorithms like Naive Bayes/SVM with NLP techniques (tokenization, TF-IDF) to process text data, and built a Flask-based web application with a clean UI for real-time spam detection.",
     },
     {
       id: 4,
-      src: free,
-      demo: "https://example.com",
-      code: "https://github.com/pranay65/Webathon3.0",
-      title: "AI Freelance Job Marketplace",
-      description: "A modern, AI-powered freelance job platform designed to bridge the gap between skilled professionals and clients looking for top-tier talent. This platform streamlines the process of connecting, collaborating, and contracting, empowering freelancers.",
+      src: Forest,
+      code: "https://github.com/Sathish-ai-dev/Edunet_AI_Intern",
+      title: "Deforestation Detection",
+      description: "This project focuses on classifying different types of fire incidents in India using MODIS satellite data from 2021 to 2023. The goal is to develop a machine learning model that can accurately predict the type of fire event (e.g., forest fire, agricultural burning, volcanic activity, or other thermal anomalies) based on satellite-captured features.",
     },
     {
       id: 5,
-      src: ats,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/Application-Tracking-System",
-      title: "AI Resume Scanner",
-      description: "A complete end-to-end Applicant Tracking System (ATS) powered by the Google Gemini Pro Vision API. The system intelligently analyzes your resume, compares it with a given job description, and provides personalized improvement suggestions to help align your profile with the job requirements.",
+      src: Movie,
+      code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/Movie-recommendation-system",
+      title: "Movie Recommendation System",
+      description: "Movie Recommendation System using Machine Learning _ Designed and implemented a recommendation engine that suggests movies based on user preferences. Utilized collaborative filtering and cosine similarity to generate personalized recommendations, and deployed.",
     },
-        {
-      id: 6,
-      src: mock,
-      demo: "https://mockinterviews-4hntumcrurj43vz2fymxgi.streamlit.app/",
-      code: "https://github.com/CharanSuggala26/MockInterviews",
-      title: "AI-Powered Mock Interview",
-      description: "FastTrackHire is an AI-powered mock interview web application built with Python, Streamlit, and LLMs (LLaMA3-8B-8192) . It helps users simulate company-specific interview experiences by analyzing their resume and tailoring questions accordingly. FastTrackHire-makes you hire like a pro!",
-    },
-        {
-      id: 7,
-      src: smart,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/Smart_Attendance_System",
-      title: "Smart Attendance System",
-      description: "Smart Attendance System using OpenCV is a facial recognition-based solution that automates attendance by detecting and verifying student faces in real-time. It enhances accuracy, reduces proxy attendance, and eliminates manual entry errors for efficient and accurate attendance tracking and management.",
-    },
-        {
-      id: 8,
-      src: link,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/LinkShield",
-      title: "AI E-mail Phishing",
-      description: "The AI E-mail Phishing Detection project uses machine learning algorithms to detect and prevent email phishing attacks. It uses natural language processing to analyze the email content and identify potential phishing indicators in real time. It alerts the user if the email is potentially phishing.",
-    },
-    {
-      id: 9,
-      src: driver,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/DrowsyDriverDetection",
-      title: "Drowsy Driving Detection",
-      description: "Improves road safety by alerting drivers showing signs of fatigue. It uses computer vision and machine learning to detect drowsiness in drivers. It alerts the driver if they are drowsy and helps them stay alert and safe on the road. Alarm is generated using pygame and CNN trained on 4000 images.",
-    },
-    {
-      id: 10,
-      src: lib,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/library-management",
-      title: "Library Management System",
-      description: "A Library Management System is a digital solution that streamlines book tracking, borrowing, returns, and inventory management for efficient library operations.",
-    },
-    {
-      id: 11,
-      src: atliq,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/AtliqueGrands-Data-Analysis",
-      title: "Atliq Grands Data Analysis",
-      description: "The AtliQ Grands Data Analysis project provides data-driven insights for the hospitality industry using Power BI and the STAR methodology. It helps businesses make informed decisions about their revenue growth.",
-    },
-        {
-      id: 12,
-      src: insurance,
-      demo: "https://example.com",
-      code: "https://github.com/CharanSuggala26/Insurance-Data-Analysis",
-      title: "Insurance Data Analysis",
-      description: " A comprehensive data analysis project focusing on insurance data to drive operational efficiency and informed decision-making. Key Highlights: Developed interactive dashboards in Power BI.",
-    }
+    
   ];
 
   return (

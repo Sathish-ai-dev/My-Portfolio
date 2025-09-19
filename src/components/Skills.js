@@ -5,26 +5,17 @@ import { GiArtificialIntelligence } from "react-icons/gi"; // For Generative AI
 const Skills=()=>{
 
 const techs = [
-  { id: 1, title: "React.js", style: "shadow-blue-500", icon: <SiReact /> },
-  { id: 2, title: "JavaScript", style: "shadow-yellow-500", icon: <SiJavascript /> },
-  { id: 3, title: "Node.js", style: "shadow-green-500", icon: <SiNodedotjs /> },
-  { id: 4, title: "TailwindCss", style: "shadow-sky-500", icon: <SiTailwindcss /> },
-  { id: 5, title: "MongoDB", style: "shadow-green-600", icon: <SiMongodb /> },
-  { id: 6, title: "Express.js", style: "shadow-pink-400", icon: <SiExpress /> },
-  { id: 7, title: "Python", style: "shadow-yellow-400", icon: <SiPython /> },
-  { id: 8, title: "C++", style: "shadow-gray-300", icon: <SiCplusplus /> },
-  { id: 9, title: "AWS CP", style: "shadow-orange-500", icon: <SiAmazon /> },
-  { id: 10, title: "Power BI", style: "shadow-blue-700", icon: <SiTableau /> },
-  { id: 11, title: "Microsoft SQL Server", style: "shadow-red-500", icon: <SiMysql /> },
-  { id: 12, title: "Machine Learning", style: "shadow-blue-400", icon: <TbBrain /> },
-  { id: 13, title: "Generative AI", style: "shadow-green-400", icon: <GiArtificialIntelligence /> },
-  { id: 14, title: "Tableau", style: "shadow-gray-400", icon: <SiTableau /> },
-  { id: 15, title: "Firebase", style: "shadow-amber-400", icon: <SiFirebase /> },
-  { id: 16, title: "Streamlit", style: "shadow-pink-400", icon: <SiStreamlit /> },
-  { id: 17, title: "OpenCv", style: "shadow-blue-500", icon: <SiOpencv /> },
-  {id:18, title:"Tensorflow", style:"shadow-pink-400", icon:<SiTensorflow />},
-  {id : 19,title:"Deeplearning", style:"shadow-red-500", icon:<SiDeepnote />},
-  {id : 20,title:"HTML/CSS", style:"shadow-green-500", icon:<SiHtml5 />},
+
+  { id: 1, title: "Python", style: "shadow-yellow-400", icon: <SiPython /> },
+  { id: 4, title: "Machine Learning", style: "shadow-blue-400", icon: <TbBrain /> },
+  {id:8, title:"Tensorflow", style:"shadow-pink-400", icon:<SiTensorflow />},
+  {id : 9,title:"Deeplearning", style:"shadow-red-500", icon:<SiDeepnote />},
+  { id: 7, title: "OpenCv", style: "shadow-blue-500", icon: <SiOpencv /> },
+  { id: 2, title: "MongoDB", style: "shadow-green-600", icon: <SiMongodb /> },
+  { id: 3, title: "AWS CP", style: "shadow-orange-500", icon: <SiAmazon /> },
+  { id: 5, title: "Firebase", style: "shadow-amber-400", icon: <SiFirebase /> },
+  { id: 6, title: "Streamlit", style: "shadow-pink-400", icon: <SiStreamlit /> },
+  {id : 10,title:"HTML/CSS", style:"shadow-green-500", icon:<SiHtml5 />},
 ];
 
 

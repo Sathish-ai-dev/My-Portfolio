@@ -1,6 +1,6 @@
-# 💼 Sai Charan Suggala's Portfolio
+# 💼 Sathish's Portfolio
 
-Welcome to my personal portfolio website! This portfolio showcases my projects, skills, and experiences. Built using **React.js**, it reflects my passion for software development, Generative AI,Machine Learning and continuous learning.
+Welcome to my personal portfolio website! This portfolio showcases my projects, skills, and experiences.
 
 ## 🌐 Website URL
 

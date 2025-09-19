@@ -7,10 +7,9 @@ const TypewriterText = () => {
   useEffect(() => {
     const typed = new Typed(el.current, {
       strings: [
-        'Full Stack Developer',
-        'Data Analyst',
-        'Machine Learning Engineer',
-        'Cloud Engineer'
+        "Machine Learning Engineer",
+        "AI Enthusiast",
+        "Agentic Automation Developer"
       ],
       typeSpeed: 50,
       backSpeed: 50,
