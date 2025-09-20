@@ -61,11 +61,10 @@ function Projects() {
         </div>
 
         <div className="grid sm:grid-cols-3 md:grid-cols-3 gap-8 px-4 sm:px-0">
-          {portfolios.map(({ id, src, demo, code, title, description }) => (
+          {portfolios.map(({ id, src, code, title, description }) => (
             <ProjectCard 
               key={id}
               src={src}
-              demo={demo}
               code={code}
               title={title}
               description={description}
@@ -87,7 +86,7 @@ function Projects() {
   );
 }
 
-function ProjectCard({ src, demo, code, title, description }) {
+function ProjectCard({ src, code, title, description }) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const cardRef = useRef(null);
 
@@ -152,14 +151,6 @@ function ProjectCard({ src, demo, code, title, description }) {
             className="transform-style-3d flex items-center justify-center p-4"
             style={{ transform: `translateZ(70px)` }}
           >
-            <a
-              href={demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-1/2 px-4 py-2 mx-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-center rounded-lg text-white font-medium hover:scale-105 duration-200"
-            >
-              Demo
-            </a>
             <a
               href={code}
               target="_blank"
