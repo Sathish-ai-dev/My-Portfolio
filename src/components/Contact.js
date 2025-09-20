@@ -9,21 +9,41 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    const formData = new FormData(form.current);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    const timestamp = formData.get('timestamp');
+
+    // First: Send to yourself
     emailjs
       .sendForm('service_ej4t1ay', 'template_drf7l9a', form.current, {
         publicKey: 'xi3s1kF1lxwRmyz8G',
       })
-      .then(
-        () => {
-          setSuccessMessage('✅ Message sent successfully!');
-          form.current.reset();
-          setTimeout(() => setSuccessMessage(''), 5000); // Clear message after 5 seconds
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-          setSuccessMessage('❌ Failed to send message. Please try again.');
-        }
-      );
+      .then(() => {
+        // Second: Send auto-reply to sender
+        emailjs.send(
+          'service_ej4t1ay',
+          'template_gj7yzss',
+          {
+            name,
+            email,
+            message,
+            timestamp,
+          },
+          {
+            publicKey: 'xi3s1kF1lxwRmyz8G',
+          }
+        );
+
+        setSuccessMessage('✅ Message sent successfully!');
+        form.current.reset();
+        setTimeout(() => setSuccessMessage(''), 5000);
+      })
+      .catch((error) => {
+        console.log('FAILED...', error.text);
+        setSuccessMessage('❌ Failed to send message. Please try again.');
+      });
   };
 
   return (
@@ -64,7 +84,6 @@ const Contact = () => {
               className="p-3 bg-transparent border-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
             ></textarea>
 
-            {/* Hidden timestamp field */}
             <input
               type="hidden"
               name="timestamp"
