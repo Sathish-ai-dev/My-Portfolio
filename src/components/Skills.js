@@ -1,21 +1,23 @@
-import { SiReact, SiJavascript, SiNodedotjs, SiTailwindcss, SiMongodb, SiExpress, SiPython, SiCplusplus, SiAmazon, SiMysql, SiTableau, SiFirebase, SiStreamlit, SiOpencv, SiTensorflow, SiDeepnote, SiHtml5 } from "react-icons/si";
+import { SiReact, SiJavascript, SiNodedotjs, SiTailwindcss, SiMongodb, SiExpress, SiPython, SiCplusplus, SiAmazon, SiMysql, SiTableau, SiFirebase, SiStreamlit, SiOpencv, SiTensorflow, SiDeepnote, SiHtml5, SiPytorch } from "react-icons/si";
 import { TbBrain } from "react-icons/tb"; // For Machine Learning
 import { GiArtificialIntelligence } from "react-icons/gi"; // For Generative AI
 
 const Skills=()=>{
 
 const techs = [
-
   { id: 1, title: "Python", style: "shadow-yellow-400", icon: <SiPython /> },
   { id: 4, title: "Machine Learning", style: "shadow-blue-400", icon: <TbBrain /> },
-  {id:8, title:"Tensorflow", style:"shadow-pink-400", icon:<SiTensorflow />},
-  {id : 9,title:"Deeplearning", style:"shadow-red-500", icon:<SiDeepnote />},
+  { id: 8, title: "Tensorflow", style: "shadow-pink-400", icon: <SiTensorflow /> },
+  { id: 9, title: "Deeplearning", style: "shadow-red-500", icon: <SiDeepnote /> },
   { id: 7, title: "OpenCv", style: "shadow-blue-500", icon: <SiOpencv /> },
+  { id: 11, title: "YOLOv5", style: "shadow-pink-500", icon: <GiArtificialIntelligence /> },
   { id: 2, title: "MongoDB", style: "shadow-green-600", icon: <SiMongodb /> },
   { id: 3, title: "AWS CP", style: "shadow-orange-500", icon: <SiAmazon /> },
   { id: 5, title: "Firebase", style: "shadow-amber-400", icon: <SiFirebase /> },
   { id: 6, title: "Streamlit", style: "shadow-pink-400", icon: <SiStreamlit /> },
-  {id : 10,title:"HTML/CSS", style:"shadow-green-500", icon:<SiHtml5 />},
+  { id: 10, title: "HTML/CSS", style: "shadow-green-500", icon: <SiHtml5 /> },
+  { id: 12, title: "Flask", style: "shadow-blue-500", icon: <SiFlask /> },
+  {id : 13,title:"Pytorch", style:"shadow-orange-500", icon:<SiPytorch />},
 ];
 
 
