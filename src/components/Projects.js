@@ -6,6 +6,7 @@ import Movie from "../assets/Movie.jpg";
 import Forest from "../assets/Forest.webp";
 import NeuroAI from "../assets/NeuroAI.jpg";
 import ObjectDetect from "../assets/ObjectDetect.png"
+import Pneumonia from "../assets/Pneumonia.png"
 
 
 function Projects() {
@@ -20,46 +21,53 @@ function Projects() {
     },
     {
       id: 2,
+      src: Pneumonia,
+      code: "https://github.com/Sathish-ai-dev/MediScanAI.git",
+      title: "MediScanAI",
+      description: "Developed an Explainable AI system utilizing Convolutional Neural Networks (CNNs) to detect pneumonia from chest X-ray images. Integrated with a Flask web application, this tool provides transparent and interpretable medical diagnostics, enhancing clinical decision-making.",
+    },
+    {
+      id: 3,
       src: ObjectDetect,
       code: "https://github.com/Sathish-ai-dev/BrookiesHub_AI-ML_Intern/tree/main/Day_9",
       title: "Real-Time Objec Detection",
       description: "Built a real-time object detection web application that leverages YOLOv5 for fast and accurate object recognition, integrated with OpenCV for live video processing and Streamlit for an interactive user interface. The system detects and labels multiple objects from webcam or video input with high precision.",
     },
     {
-      id: 3,
+      id: 4,
       src: Fake,
       code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/fake-news-detection",
       title: "Fake News Detection",
       description: "Developed a machine learning-based system to classify news articles as real or fake. Implemented NLP techniques for text preprocessing (tokenization, stopword removal, TF-IDF vectorization) and trained models like Logistic Regression, Naive Bayes, and Random Forest for classification. Achieved high accuracy in detecting misinformation. The system was deployed using Flask."
     },
     {
-      id: 4,
+      id: 6,
       src: Loan,
       code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/Loan-eligibility-predictor",
       title: "Loan Eligibility Predictor",
       description: "Loan Eligibility Predictor using Machine Learning – Built a predictive model to assess loan eligibility based on applicant financial and demographic data. Applied Logistic Regression and Random Forest algorithms with feature engineering and data preprocessing, achieving high accuracy in classification. Deployed the model using Flask with an interactive web interface for real-time eligibility checks."
     },
     {
-      id: 5,
+      id: 7,
       src: Email,
       code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/Email-spam-detector",
       title: "Email Spam Classifier",
       description: "Spam Email Classifier using Machine Learning _ Developed and deployed a lightweight email classification model capable of detecting spam with 90%+ accuracy. Implemented algorithms like Naive Bayes/SVM with NLP techniques (tokenization, TF-IDF) to process text data, and built a Flask-based web application with a clean UI for real-time spam detection.",
     },
     {
-      id: 6,
+      id: 8,
       src: Forest,
       code: "https://github.com/Sathish-ai-dev/Edunet_AI_Intern",
       title: "Deforestation Detection",
       description: "This project focuses on classifying different types of fire incidents in India using MODIS satellite data from 2021 to 2023. The goal is to develop a machine learning model that can accurately predict the type of fire event (e.g., forest fire, agricultural burning, volcanic activity, or other thermal anomalies) based on satellite-captured features.",
     },
     {
-      id: 7,
+      id: 9,
       src: Movie,
       code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/Movie-recommendation-system",
       title: "Movie Recommendation System",
       description: "Movie Recommendation System using Machine Learning _ Designed and implemented a recommendation engine that suggests movies based on user preferences. Utilized collaborative filtering and cosine similarity to generate personalized recommendations, and deployed.",
-    },
+    }
     
     
   ];
