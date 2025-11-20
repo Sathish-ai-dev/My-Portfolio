@@ -7,6 +7,7 @@ import Forest from "../assets/Forest.webp";
 import NeuroAI from "../assets/NeuroAI.jpg";
 import ObjectDetect from "../assets/ObjectDetect.png"
 import Pneumonia from "../assets/Pneumonia.png"
+import RAG from "../assets/RAG_user_Interface.png"
 
 
 function Projects() {
@@ -14,27 +15,34 @@ function Projects() {
   const portfolios = [
     {
       id: 1,
+      src: RAG,
+      code: "https://github.com/Sathish-ai-dev/RAG_Based_Research_Assistant",
+      title: "RAG Based Research Assistant",
+      description: "Developed a Retrieval-Augmented Generation (RAG) system capable of analyzing research documents, retrieving relevant context, and generating accurate, grounded responses. Built a complete end-to-end pipeline integrating embeddings, vector search, LLM reasoning, and a Flask-based user interface.",
+    },
+    {
+      id: 2,
       src: NeuroAI,
       code: "https://github.com/Sathish-ai-dev/Neuro_Symbolic_AI",
       title: "Neuro Symbolic AI",
       description: "Developed an intelligent hybrid AI system that integrates neural networks with symbolic reasoning to enable explainable decision-making and logical inference. The project leverages Flask, React, and Prolog to combine deep learning’s pattern recognition with rule-based reasoning for tasks such as legal document analysis, knowledge representation, and automated compliance checking.",
     },
     {
-      id: 2,
+      id: 3,
       src: Pneumonia,
       code: "https://github.com/Sathish-ai-dev/MediScanAI.git",
       title: "MediScanAI",
       description: "Developed an Explainable AI system utilizing Convolutional Neural Networks (CNNs) to detect pneumonia from chest X-ray images. Integrated with a Flask web application, this tool provides transparent and interpretable medical diagnostics, enhancing clinical decision-making.",
     },
     {
-      id: 3,
+      id: 4,
       src: ObjectDetect,
       code: "https://github.com/Sathish-ai-dev/BrookiesHub_AI-ML_Intern/tree/main/Day_9",
       title: "Real-Time Objec Detection",
       description: "Built a real-time object detection web application that leverages YOLOv5 for fast and accurate object recognition, integrated with OpenCV for live video processing and Streamlit for an interactive user interface. The system detects and labels multiple objects from webcam or video input with high precision.",
     },
     {
-      id: 4,
+      id: 5,
       src: Fake,
       code: "https://github.com/Sathish-ai-dev/ML-and-AI-Projects/tree/main/fake-news-detection",
       title: "Fake News Detection",
