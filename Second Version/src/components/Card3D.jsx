@@ -2,11 +2,13 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import profileImage from '../assets/profile2.png'
 import roboimg from '../assets/Digital_Twin.png'
+import Chatbot from './Chatbot'
 
 export default function Card3D() {
   const cardRef = useRef(null)
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
   const [typedMessage, setTypedMessage] = useState('')
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false)
   const message = "I'm Digital Twin, Ask anything about sathish !"
 
   useEffect(() => {
@@ -114,10 +116,12 @@ export default function Card3D() {
             className="w-full h-full object-cover"
           />
 
-          {/* Robot Emoji - Bottom Right Corner */}
+          {/* Robot Emoji - Bottom Right Corner - Click to open chatbot */}
           <motion.div
-            className="absolute bottom-8 left-8 w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl"
+            onClick={() => setIsChatbotOpen(true)}
+            className="absolute bottom-8 left-8 w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl cursor-pointer"
             whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 1.3 }}
             style={{ transform: 'translateZ(150px)' }}
           >
             <img
@@ -171,6 +175,9 @@ export default function Card3D() {
           }}
         />
       </motion.div>
+
+      {/* Chatbot Modal */}
+      <Chatbot isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
     </div>
   )
 }
