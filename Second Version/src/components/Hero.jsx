@@ -1,10 +1,25 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Card3D from './Card3D'
 import cvFile from '../assets/Sathish_CV_Updated.pdf'
 
 export default function Hero() {
   const containerRef = useRef(null)
+
+  // Track scroll progress of the hero section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  })
+
+  // Transform scroll progress into animation values
+  const leftContentX = useTransform(scrollYProgress, [0, 1], [0, -300])
+  const leftContentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  const rightContentX = useTransform(scrollYProgress, [0, 1], [0, 300])
+  const rightContentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
 
   const socialLinks = [
     {
@@ -46,6 +61,10 @@ export default function Hero() {
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          style={{
+            x: leftContentX,
+            opacity: leftContentOpacity
+          }}
           className="space-y-6"
         >
           <motion.div
@@ -147,6 +166,10 @@ export default function Hero() {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          style={{
+            x: rightContentX,
+            opacity: rightContentOpacity
+          }}
           className="flex justify-center items-center"
         >
           <Card3D />
@@ -158,6 +181,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
+        style={{ opacity: scrollIndicatorOpacity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div

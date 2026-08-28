@@ -1,9 +1,28 @@
-import { useRef, useState, useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import profileImage from '../assets/profile2.png'
+import roboimg from '../assets/Digital_Twin.png'
 
 export default function Card3D() {
   const cardRef = useRef(null)
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
+  const [typedMessage, setTypedMessage] = useState('')
+  const message = "I'm Digital Twin, Ask anything about sathish !"
+
+  useEffect(() => {
+    let characterIndex = 0
+
+    const typingInterval = window.setInterval(() => {
+      characterIndex += 1
+      setTypedMessage(message.slice(0, characterIndex))
+
+      if (characterIndex === message.length) {
+        window.clearInterval(typingInterval)
+      }
+    }, 75)
+
+    return () => window.clearInterval(typingInterval)
+  }, [])
 
   // Keep particle positions stable between renders
   const particles = useMemo(
@@ -46,20 +65,21 @@ export default function Card3D() {
     >
       <motion.div
         ref={cardRef}
-        className="relative w-80 h-96 rounded-3xl overflow-hidden cursor-pointer"
+        className="relative w-800 h-960 rounded-3xl overflow-hidden cursor-pointer"
         style={{ transformStyle: 'preserve-3d' }}
         animate={{
-          rotateX: rotation.x,
-          rotateY: rotation.y,
+          scale: [1, 1.03, 1],
+          filter: ["drop-shadow(0px 0px 0px rgba(0,0,0,0))", "drop-shadow(0px 10px 20px rgba(99,102,241,0.6))", "drop-shadow(0px 0px 0px rgba(0,0,0,0))"]
         }}
         transition={{
-          type: 'spring',
-          stiffness: 300,
-          damping: 20,
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
         }}
+
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ scale: 1 }}
       >
         {/* Card Background */}
         <div
@@ -83,61 +103,40 @@ export default function Card3D() {
           style={{ transform: 'translateZ(20px)' }}
         />
 
-        {/* Content */}
+        {/* Content - Profile Image */}
         <div
-          className="relative w-full h-full p-8 flex flex-col justify-between"
+          className="relative w-full h-full"
           style={{ transform: 'translateZ(50px)' }}
         >
-          {/* Top Section */}
-          <div className="space-y-4">
-            <motion.div
-              className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl"
-              animate={{ rotate: [0, 360] }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-            >
-              🤖
-            </motion.div>
+          <img
+            src={profileImage}
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
 
-            <h3 className="text-2xl font-display font-bold text-white">
-              AI Engineer
-            </h3>
+          {/* Robot Emoji - Bottom Right Corner */}
+          <motion.div
+            className="absolute bottom-8 left-8 w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl"
+            whileHover={{ scale: 1.5 }}
+            style={{ transform: 'translateZ(150px)' }}
+          >
+            <img
+              src={roboimg}
+              alt="Digital Twin"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
 
-            <p className="text-primary-light/80 text-sm">
-              Building AI, Generative AI, RAG, ML and Full-Stack Applications
-            </p>
-          </div>
-
-          {/* Skills Grid */}
-          <div className="grid grid-cols-3 gap-3">
-            {[
-              { label: 'AI', value: 'GenAI' },
-              { label: 'LLMs', value: 'RAG' },
-              { label: 'Code', value: 'Python' },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center p-3 rounded-xl bg-white/10 backdrop-blur-sm"
-                style={{
-                  transform: `translateZ(${30 + index * 10}px)`,
-                }}
-                whileHover={{
-                  scale: 1.08,
-                }}
-              >
-                <div className="text-lg font-bold text-white">
-                  {stat.value}
-                </div>
-
-                <div className="text-xs text-primary-light/70">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            className="absolute bottom-11 left-28 max-w-52 rounded-2xl rounded-bl-sm bg-white/90 px-4 py-3 text-sm font-medium leading-relaxed text-primary-dark shadow-lg"
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.35 }}
+            style={{ transform: 'translateZ(150px)' }}
+          >
+            {typedMessage}
+            <span className="ml-0.5 inline-block animate-pulse">|</span>
+          </motion.div>
         </div>
 
         {/* Floating Particles */}
