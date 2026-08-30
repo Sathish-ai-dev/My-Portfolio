@@ -1,10 +1,12 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { useRef, useState } from 'react'
 import Card3D from './Card3D'
+import Chatbot from './Chatbot'
 import cvFile from '../assets/Sathish_CV_Updated.pdf'
 
 export default function Hero() {
   const containerRef = useRef(null)
+  const [isChatOpen, setIsChatOpen] = useState(false)
 
   // Track scroll progress of the hero section
   const { scrollYProgress } = useScroll({
@@ -20,6 +22,13 @@ export default function Hero() {
   const rightContentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
+
+  // Close the chatbot automatically when the user scrolls away from the hero
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    if (latest > 0.15) {
+      setIsChatOpen(false)
+    }
+  })
 
   const socialLinks = [
     {
@@ -56,7 +65,7 @@ export default function Hero() {
     >
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Left: Text Content */}
+        {/* Left: Text Content (hides when the chatbot is open) */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -65,8 +74,18 @@ export default function Hero() {
             x: leftContentX,
             opacity: leftContentOpacity
           }}
-          className="space-y-6"
+          className={isChatOpen ? 'md:col-start-2 md:row-start-1' : ''}
         >
+          <motion.div
+            animate={{
+              opacity: isChatOpen ? 0 : 1,
+              x: isChatOpen ? -120 : 0,
+              scale: isChatOpen ? 0.9 : 1
+            }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            style={{ pointerEvents: isChatOpen ? 'none' : 'auto' }}
+            className="space-y-6"
+          >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,9 +178,10 @@ export default function Hero() {
               </motion.a>
             ))}
           </motion.div>
+          </motion.div>
         </motion.div>
 
-        {/* Right: 3D Interactive Card */}
+        {/* Right: 3D Interactive Card (slides to the left side when the chatbot is open) */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -170,11 +190,27 @@ export default function Hero() {
             x: rightContentX,
             opacity: rightContentOpacity
           }}
-          className="flex justify-center items-center"
+          className={`flex justify-center items-center ${
+            isChatOpen ? 'md:col-start-1 md:row-start-1 md:justify-start' : ''
+          }`}
         >
-          <Card3D />
+          <motion.div
+            layout
+            transition={{ type: 'spring', damping: 30, stiffness: 200 }}
+            className="flex justify-center items-center"
+          >
+            <motion.div
+              animate={{ scale: isChatOpen ? 0.85 : 1 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+            >
+              <Card3D isChatOpen={isChatOpen} onOpenChat={() => setIsChatOpen(true)} />
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Chatbot Modal */}
+      <Chatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
       {/* Scroll Indicator */}
       <motion.div

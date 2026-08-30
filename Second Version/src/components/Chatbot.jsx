@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { generateAIResponse, generateFallbackResponse } from '../services/geminiService'
 import roboimg from '../assets/Digital_Twin.png'
+import broimg from '../assets/Bro.png'
 
 export default function Chatbot({ isOpen, onClose }) {
   const [messages, setMessages] = useState([
@@ -103,7 +104,11 @@ export default function Chatbot({ isOpen, onClose }) {
     "What are Sathish's skills?",
     "Tell me about his projects",
     "What's his experience?",
-    "How can I contact him?"
+    "How can I contact him?",
+    "What's his education?",
+    "What's his tech stack?",
+    "Is he available for hire?",
+    "What are his career goals?"
   ]
 
   const handleQuickQuestion = (question) => {
@@ -117,19 +122,21 @@ export default function Chatbot({ isOpen, onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-end p-4 md:p-8"
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.9, y: 20 }}
-        animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 20 }}
+        initial={{ scale: 0.9, x: 100 }}
+        animate={{ scale: 1, x: 0 }}
+        exit={{ scale: 0.9, x: 100 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-2xl h-[600px] bg-gradient-to-br from-primary-dark via-[#0d2347] to-primary rounded-3xl shadow-2xl overflow-hidden border border-primary/30"
+        className="relative w-full max-w-2xl h-[600px] bg-gradient-to-br from-primary-dark via-[#0d2347] to-primary rounded-3xl shadow-2xl overflow-hidden border border-primary/30 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
+        
         {/* Header */}
-        <div className="relative bg-white/5 backdrop-blur-md border-b border-white/10 p-4 flex items-center justify-between">
+        <div className="relative shrink-0 bg-white/5 backdrop-blur-md border-b border-white/10 p-4 flex items-center justify-between">
+        
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-medium flex items-center justify-center overflow-hidden">
               <img src={roboimg} alt="Digital Twin" className="w-full h-full object-cover" />
@@ -153,14 +160,16 @@ export default function Chatbot({ isOpen, onClose }) {
         </div>
 
         {/* Messages Area */}
-        <div ref={messagesContainerRef} className="h-[calc(100%-180px)] overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent">
+        <div ref={messagesContainerRef} className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent">
           {messages.map((message) => (
+            
             <motion.div
               key={message.id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
             >
+              
               <div
                 className={`max-w-[80%] rounded-2xl p-4 ${
                   message.type === 'user'
@@ -188,11 +197,13 @@ export default function Chatbot({ isOpen, onClose }) {
             >
               <div className="bg-white/10 backdrop-blur-md rounded-2xl rounded-bl-sm p-4 border border-white/20">
                 <div className="flex gap-1">
+                  
                   <motion.span
                     animate={{ opacity: [0.3, 1, 0.3] }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0 }}
                     className="w-2 h-2 bg-primary-light rounded-full"
                   />
+                  
                   <motion.span
                     animate={{ opacity: [0.3, 1, 0.3] }}
                     transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
@@ -211,7 +222,7 @@ export default function Chatbot({ isOpen, onClose }) {
 
         {/* Quick Questions */}
         {messages.length <= 1 && (
-          <div className="px-4 pb-2">
+          <div className="shrink-0 px-4 pb-2">
             <div className="text-xs text-primary-light/60 mb-2">Quick questions:</div>
             <div className="flex flex-wrap gap-2">
               {quickQuestions.map((question, index) => (
@@ -230,8 +241,9 @@ export default function Chatbot({ isOpen, onClose }) {
         )}
 
         {/* Input Area */}
-        <div className="absolute bottom-0 left-0 right-0 bg-white/5 backdrop-blur-md border-t border-white/10 p-4">
+        <div className="shrink-0 bg-white/5 backdrop-blur-md border-t border-white/10 p-4">
           <form onSubmit={(e) => { e.preventDefault(); handleSend(e); }} className="flex gap-2">
+            
             <input
               ref={inputRef}
               type="text"
@@ -242,6 +254,7 @@ export default function Chatbot({ isOpen, onClose }) {
               className="flex-1 bg-white/10 border border-white/20 rounded-full px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-primary transition-colors"
               disabled={isTyping}
             />
+            
             <motion.button
               type="button"
               onClick={(e) => handleSend(e)}

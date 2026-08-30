@@ -1,14 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import profileImage from '../assets/profile2.png'
+import broimg from '../assets/Bro.png'
 import roboimg from '../assets/Digital_Twin.png'
-import Chatbot from './Chatbot'
 
-export default function Card3D() {
+export default function Card3D({ isChatOpen, onOpenChat }) {
   const cardRef = useRef(null)
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
   const [typedMessage, setTypedMessage] = useState('')
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false)
   const message = "I'm Digital Twin, Ask anything about sathish !"
 
   useEffect(() => {
@@ -105,7 +104,7 @@ export default function Card3D() {
           style={{ transform: 'translateZ(20px)' }}
         />
 
-        {/* Content - Profile Image */}
+        {/* Content - Profile Image (crossfades to Bro.png when the chatbot is open) */}
         <div
           className="relative w-full h-full"
           style={{ transform: 'translateZ(50px)' }}
@@ -113,16 +112,27 @@ export default function Card3D() {
           <img
             src={profileImage}
             alt="Profile"
-            className="w-full h-full object-cover"
+            className={`w-full object-cover transition-opacity duration-500 ${
+              isChatOpen ? 'opacity-0' : 'opacity-100'
+            }`}
+          />
+          <img
+            src={broimg}
+            alt="Bro"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-5000 ${
+              isChatOpen ? 'opacity-100' : 'opacity-0'
+            }`}
           />
 
           {/* Robot Emoji - Bottom Right Corner - Click to open chatbot */}
           <motion.div
-            onClick={() => setIsChatbotOpen(true)}
+            onClick={onOpenChat}
+            animate={{ opacity: isChatOpen ? 0 : 1, scale: isChatOpen ? 0.8 : 1 }}
+            transition={{ duration: 0.3 }}
+            style={{ transform: 'translateZ(150px)', pointerEvents: isChatOpen ? 'none' : 'auto' }}
             className="absolute bottom-8 left-8 w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl cursor-pointer"
             whileHover={{ scale: 1.5 }}
             whileTap={{ scale: 1.3 }}
-            style={{ transform: 'translateZ(150px)' }}
           >
             <img
               src={roboimg}
@@ -134,7 +144,7 @@ export default function Card3D() {
           <motion.div
             className="absolute bottom-11 left-28 max-w-52 rounded-2xl rounded-bl-sm bg-white/90 px-4 py-3 text-sm font-medium leading-relaxed text-primary-dark shadow-lg"
             initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{ opacity: isChatOpen ? 0 : 1, x: 0 }}
             transition={{ duration: 0.35 }}
             style={{ transform: 'translateZ(150px)' }}
           >
@@ -175,9 +185,6 @@ export default function Card3D() {
           }}
         />
       </motion.div>
-
-      {/* Chatbot Modal */}
-      <Chatbot isOpen={isChatbotOpen} onClose={() => setIsChatbotOpen(false)} />
     </div>
   )
 }
