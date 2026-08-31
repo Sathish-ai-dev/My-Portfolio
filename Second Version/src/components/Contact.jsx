@@ -3,10 +3,44 @@ import { useState } from 'react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState({ type: '', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setStatus({ type: '', message: '' })
+
+    const payload = {
+      access_key: import.meta.env.VITE_WEB3FORM_ACCESS_KEY,
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' })
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        setStatus({ type: 'error', message: result.message || 'Something went wrong. Please try again.' })
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Network error. Please try again later.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactMethods = [
@@ -163,6 +197,7 @@ export default function Contact() {
                 </label>
                 <motion.input
                   type="text"
+                  name="name"
                   whileFocus={{ scale: 1.02 }}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-primary/20 focus:border-primary focus:outline-none text-white placeholder:text-white/30 transition-all"
                   placeholder="John Doe"
@@ -177,6 +212,7 @@ export default function Contact() {
                 </label>
                 <motion.input
                   type="email"
+                  name="email"
                   whileFocus={{ scale: 1.02 }}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-primary/20 focus:border-primary focus:outline-none text-white placeholder:text-white/30 transition-all"
                   placeholder="john@example.com"
@@ -190,6 +226,7 @@ export default function Contact() {
                   Your Message
                 </label>
                 <motion.textarea
+                  name="message"
                   whileFocus={{ scale: 1.02 }}
                   rows={5}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-primary/20 focus:border-primary focus:outline-none text-white placeholder:text-white/30 resize-none transition-all"
@@ -199,13 +236,27 @@ export default function Contact() {
                 />
               </div>
 
+              {status.message && (
+                <div
+                  role="alert"
+                  className={`px-4 py-3 rounded-xl text-sm font-medium border ${
+                    status.type === 'success'
+                      ? 'bg-green-500/10 border-green-500/40 text-green-400'
+                      : 'bg-red-500/10 border-red-500/40 text-red-400'
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+
               <motion.button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary to-primary-dark rounded-xl font-medium glow-box hover:shadow-2xl transition-shadow"
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting}
+                className="w-full px-8 py-4 bg-gradient-to-r from-primary to-primary-dark rounded-xl font-medium glow-box hover:shadow-2xl transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
+                whileHover={isSubmitting ? {} : { scale: 1.02, y: -2 }}
+                whileTap={isSubmitting ? {} : { scale: 0.98 }}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
             </form>
           </motion.div>

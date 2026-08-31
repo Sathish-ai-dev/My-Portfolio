@@ -3,10 +3,12 @@ import { useRef, useState } from 'react'
 import Card3D from './Card3D'
 import Chatbot from './Chatbot'
 import cvFile from '../assets/Sathish_CV_Updated.pdf'
+import useMediaQuery from '../hooks/useMediaQuery'
 
 export default function Hero() {
   const containerRef = useRef(null)
   const [isChatOpen, setIsChatOpen] = useState(false)
+  const isMobile = useMediaQuery('(max-width: 767px)')
 
   // Track scroll progress of the hero section
   const { scrollYProgress } = useScroll({
@@ -70,10 +72,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          style={{
-            x: leftContentX,
-            opacity: leftContentOpacity
-          }}
+          style={isMobile ? {} : { x: leftContentX, opacity: leftContentOpacity }}
           className={isChatOpen ? 'md:col-start-2 md:row-start-1' : ''}
         >
           <motion.div
@@ -186,10 +185,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          style={{
-            x: rightContentX,
-            opacity: rightContentOpacity
-          }}
+          style={isMobile ? {} : { x: rightContentX, opacity: rightContentOpacity }}
           className={`flex justify-center items-center ${
             isChatOpen ? 'md:col-start-1 md:row-start-1 md:justify-start' : ''
           }`}
@@ -217,7 +213,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        style={{ opacity: scrollIndicatorOpacity }}
+        style={isMobile ? {} : { opacity: scrollIndicatorOpacity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div
