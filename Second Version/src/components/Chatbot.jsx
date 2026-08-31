@@ -36,20 +36,22 @@ export default function Chatbot({ isOpen, onClose }) {
     }
   }, [isOpen])
 
-  const handleSend = async (e) => {
+  const handleSend = async (e, customMessage) => {
     // Prevent default form submission
     if (e) {
       e.preventDefault()
       e.stopPropagation()
     }
 
-    if (!input.trim()) return
+    // Allow sending a custom message (e.g. quick question) without relying on state
+    const messageText = (customMessage ?? input).trim()
+    if (!messageText) return
 
     // Add user message
     const userMessage = {
       id: messages.length + 1,
       type: 'user',
-      content: input,
+      content: messageText,
       timestamp: new Date()
     }
 
@@ -63,7 +65,7 @@ export default function Chatbot({ isOpen, onClose }) {
       const conversationHistory = newMessages.slice(1)
 
       // Generate AI response using Gemini
-      const result = await generateAIResponse(input, conversationHistory)
+      const result = await generateAIResponse(messageText, conversationHistory)
 
       // Create bot response
       const botResponse = {
@@ -78,7 +80,7 @@ export default function Chatbot({ isOpen, onClose }) {
       console.error('Error generating response:', error)
 
       // Fallback to local response
-      const fallbackText = generateFallbackResponse(input)
+      const fallbackText = generateFallbackResponse(messageText)
       const botResponse = {
         id: newMessages.length + 1,
         type: 'bot',
@@ -112,7 +114,9 @@ export default function Chatbot({ isOpen, onClose }) {
   ]
 
   const handleQuickQuestion = (question) => {
-    setInput(question)
+    // Send the quick question immediately, no need to click Send
+    if (isTyping) return
+    handleSend(null, question)
   }
 
   if (!isOpen) return null
@@ -228,6 +232,7 @@ export default function Chatbot({ isOpen, onClose }) {
               {quickQuestions.map((question, index) => (
                 <motion.button
                   key={index}
+                  type="button"
                   onClick={() => handleQuickQuestion(question)}
                   className="text-xs px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/20 rounded-full text-white transition-colors"
                   whileHover={{ scale: 1.05 }}
